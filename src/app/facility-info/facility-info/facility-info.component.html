@@ -1,0 +1,59 @@
+<div class="container-fluid align" *ngIf="facilityDetails">
+  <button mat-icon-button (click)="goPreviousPage()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-card class="mat-elevation-z8">
+    <div class="row row-wrap">
+      <app-facility-card
+        label="Address Line 1"
+        [value]="facilityDetails.address_line_1"
+      ></app-facility-card>
+      <app-facility-card
+        label="Facility Name"
+        [value]="facilityDetails.facility_name"
+      ></app-facility-card>
+      <app-facility-card
+        label="City"
+        [value]="facilityDetails.city"
+      ></app-facility-card>
+      <app-facility-card
+        label="State"
+        [value]="facilityDetails.state"
+      ></app-facility-card>
+      <app-facility-card
+        label="Zip Code"
+        [value]="facilityDetails.zip_code"
+      ></app-facility-card>
+      <app-facility-card
+        label="County Name"
+        [value]="facilityDetails.county_name"
+      ></app-facility-card>
+      <app-facility-card
+        label="Phone Number"
+        [value]="facilityDetails.phonenumber"
+      ></app-facility-card>
+      <app-facility-card
+        label="Ownership type"
+        [value]="facilityDetails.ownership_type"
+      ></app-facility-card>
+      <app-facility-card
+        label="No. of beds available"
+        [value]="facilityDetails.cms_certification_number_ccn | beds"
+      >
+      </app-facility-card>
+      <app-facility-card
+        label="CMS Region"
+        [value]="facilityDetails.cms_region"
+      ></app-facility-card>
+      <app-facility-card
+        label="CMS Cert. number"
+        [value]="facilityDetails.cms_certification_number_ccn"
+      >
+      </app-facility-card>
+      <app-facility-card
+        label="Cert. Date"
+        [value]="facilityDetails.certification_date | date"
+      ></app-facility-card>
+    </div>
+  </mat-card>
+</div>

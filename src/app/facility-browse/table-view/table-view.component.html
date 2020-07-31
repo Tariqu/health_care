@@ -1,0 +1,59 @@
+<div class="mat-elevation-z8">
+  <table mat-table matSort [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="facility_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Facility Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.facility_name }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="type_of_facility">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Type of facility
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.type_of_facility }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+      <td mat-cell *matCellDef="let row">{{ row.city }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+      <td mat-cell *matCellDef="let row">{{ row.state }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="zip_code">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Zip Code</th>
+      <td mat-cell *matCellDef="let row" class="text-center">
+        {{ row.zip_code }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total_number_of_beds">
+      <th mat-header-cell *matHeaderCellDef>Total number of beds</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        appBedsSignal
+        [bed]="row.total_number_of_beds"
+        [key]="row.total_number_of_beds ? true : false"
+        class="text-center"
+      >
+        {{ row.total_number_of_beds }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      (click)="navigateToDetails(row)"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"></mat-paginator>
+</div>

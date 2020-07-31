@@ -1,0 +1,24 @@
+<div class="container-fluid align">
+  <div class="row">
+    <div class="col-4">
+      <mat-card class="mat-elevation-z8">
+        <app-search-view
+          (searchSubmit)="searchCriteria = $event; getSearchResults($event)"
+        >
+        </app-search-view>
+      </mat-card>
+    </div>
+    <div class="col-8">
+      <app-table-view
+        *ngIf="!loading"
+        [searchResults]="searchResults"
+        [loading]="loading"
+      ></app-table-view>
+      <mat-spinner
+        style="margin: auto;"
+        [diameter]="50"
+        *ngIf="loading"
+      ></mat-spinner>
+    </div>
+  </div>
+</div>
